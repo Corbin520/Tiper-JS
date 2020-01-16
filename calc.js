@@ -5,6 +5,7 @@
 // the amount for the user
 
 var resultText = document.getElementById("result")
+var totalBill = document.getElementById("total-bill")
 
 
 var billTotal = []
@@ -12,6 +13,10 @@ var billTotal = []
 // get the value off the input price box
 $("#calculate-total").on("click", function() {
     
+    // if(inpVal === null) {
+    //     console.log("nothing entered");
+    // }
+
     var inpVal = $("#price-input").val().trim()
 
     billTotal.push(inpVal)
@@ -20,7 +25,10 @@ $("#calculate-total").on("click", function() {
     
     var grandTotal = billTotal * tipValue
 
-    resultText.textContent = "$" + grandTotal.toFixed(2)
+    var combinedTotal = +inpVal + +tipValue;
+
+    resultText.textContent = "Tip: " + "$" + grandTotal.toFixed(2)
+    totalBill.textContent = "Total Bill: " + "$" + combinedTotal.toFixed(2)
 
     $("#calculate-total").hide()
 
